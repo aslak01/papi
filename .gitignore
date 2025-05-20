@@ -9,6 +9,8 @@ dist
 # code coverage
 coverage
 *.lcov
+test-results
+playwright-report
 
 # logs
 logs
@@ -32,3 +34,4 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Finder (MacOS) folder config
 .DS_Store
+

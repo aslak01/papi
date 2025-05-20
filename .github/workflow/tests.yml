@@ -1,0 +1,19 @@
+name: Build and Test
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Get bun
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install deps
+        run: bun i
+      - name: run tests
+        run: bunx playwright test
