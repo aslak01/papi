@@ -5,14 +5,21 @@ on:
     branches: [main]
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v2
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
       - name: Install deps
         run: bun install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: bunx playwright install --with-deps
+
       - name: run tests
         run: bunx playwright test
